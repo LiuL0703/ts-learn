@@ -50,7 +50,8 @@ console.log(res.user.message);  // Property 'user' does not exist on type 'Respo
 ```
 
 
-###【TypeError: ‘undefined’ is not an object(Safari) | Uncaught TypeError: Cannot read property 'xxx' of undefined】 | 【 TypeError: null is not an object(Safari) |Uncaught TypeError: Cannot read property 'xxx' of null 】
+### TypeError: ‘undefined’ is not an object(Safari) | Uncaught TypeError: Cannot read property 'xxx' of undefined 
+### TypeError: null is not an object(Safari) | Uncaught TypeError: Cannot read property 'xxx' of null 
 + **原因**：当读取或调用一个值为undefined或null对象的属性或方法时
 ```js
 var testArr = undefined;
