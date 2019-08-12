@@ -25,6 +25,7 @@ const res = res.data?.body?.message || '';
 ```
 8月1号 [ Optional Chaining proposal](https://tc39.es/proposal-optional-chaining/)已经进入stage 3阶段，不出意外的话，未来会作为ECMAScript的新规范出现
 
++ **使用ts**
 ```ts
 interface Respons{
   data:{
@@ -54,13 +55,22 @@ console.log(res.user.message);  // Property 'user' does not exist on type 'Respo
 ### TypeError: null is not an object(Safari) | Uncaught TypeError: Cannot read property 'xxx' of null 
 + **原因**：当读取或调用一个值为undefined或null对象的属性或方法时
 ```js
-var testArr = undefined;
-console.log(testArr.length);
+var flag = undefined;
+console.log(flag.length); // Uncaught TypeError: Cannot read property 'length' of undefined
 
-var testArr = null;
-console.log(testArr.length);
+var flag = null;
+console.log(flag.length); // Uncaught TypeError: Cannot read property 'length' of null
 ```
 
++ **使用ts**
+```ts
+var flag:boolean = undefined;
+flag.length;  // Property 'length' does not exist on type 'boolean'
+
+var flag:boolean = null;
+flag.length;  // Property 'length' does not exist on type 'boolean'
+
+```
 
 
 ### TypeError: Object doesn’t support property(IE) | TypeError: ‘undefined’ is not a function
@@ -74,6 +84,7 @@ window.document.addEventListener('click',function(){
 // Uncaught TypeError: this.onClick is not a function
 ```
 
++ **使用ts**
 ```ts
 const onClick = (e: MouseEvent) =>
   console.log(`(${e.clientX}, ${e.clientY})`);
@@ -100,6 +111,7 @@ function testFunction(testArray) {
 testFunction(); // Uncaught TypeError: Cannot read property 'length' of undefined
 ```
 
++ **使用ts**
 ```ts
 var testArray:string[] = ["Test"];
 
@@ -123,6 +135,7 @@ test.value = 'str';  // Uncaught TypeError: Cannot set property 'value' of undef
 console.log(test.value);  // Uncaught TypeError: Cannot read property 'value' of undefined
 ```
 
++ **使用ts**
 ```ts
 var test: undefined = undefined;
 test.value = 'str';  // Object is possibly 'undefined'
@@ -142,7 +155,7 @@ function bar(){
 console.log(foo); // Uncaught ReferenceError: foo is not defined
 
 ```
-
++ **使用ts**
 ```ts
 function bar():void{
   var foo:null;

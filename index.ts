@@ -1,7 +1,7 @@
-// const plusOne = (x:number) => x + 1
-// const arr : readonly [string,number,string,number] = ['1',2,'3',4];
+const plusOne = (x:number) => x + 1
+const arr : readonly [string,number,string,number] = ['1',2,'3',4];
 
-// console.log(`1 + 1 = ${plusOne(1)}`)
+console.log(`1 + 1 = ${plusOne(1)}`)
 
 // const ar = ['1',2,'3'] as const;
 // let i: string = 'qqq';
@@ -31,3 +31,6 @@
 // window.addEventListener('click',function():void{
 //   this.onClick();
 // });
+// let flag:boolean = null;
+
+// flag.length;

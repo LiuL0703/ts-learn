@@ -18,9 +18,10 @@
 // window.document.addEventListener('scroll',function():void {
 //   this.scrollEvent();
 // });
-var onClick = function (e) {
-    return console.log("(" + e.clientX + ", " + e.clientY + ")");
-};
-window.addEventListener('click', function () {
-    this.onClick();
-});
+// const onClick = (e: MouseEvent) =>
+//   console.log(`(${e.clientX}, ${e.clientY})`);
+// window.addEventListener('click',function():void{
+//   this.onClick();
+// });
+// let flag:boolean = null;
+// flag.length;
