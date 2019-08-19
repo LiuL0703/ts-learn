@@ -27,11 +27,12 @@ const res = res.data?.body?.message || '';
 
 + **使用ts**
 ```ts
-interface Respons{
+type Respons = {
   data:{
     body: {
       user:{
-        message:string
+        message:string,
+        hit:string|number
       }
     }
   },
@@ -49,6 +50,16 @@ let res:Respons = {
 console.log(res.user.message);  // Property 'user' does not exist on type 'Respons'
 
 ```
+
+#### tips
+##### 类型字面量【Type Literal】
+与类型字面量对应的就是 js 中的对象字面量，所以他们的语法很相似
+
+##### type vs interface
++ [Typescript: Interfaces vs Types](https://stackoverflow.com/questions/37233735/typescript-interfaces-vs-types)
++ [Interfaces vs. Type Aliases](https://www.typescriptlang.org/docs/handbook/advanced-types.html#interfaces-vs-type-aliases)
+
+
 
 
 ### TypeError: ‘undefined’ is not an object(Safari) | Uncaught TypeError: Cannot read property 'xxx' of undefined 
@@ -123,7 +134,38 @@ function testFunction(testArray:Array<String>):void {
 
 testFunction();  // Expected 1 arguments, but got 0.
 ```
+#### tips
+关于数组和元组
 
+##### 元组
++ 元组是一个描述定长数组的类型，各项内容的类型可不同 
++ 元组是定长的，所以不同长度的元组是不兼容的【ts2.7引入】具体解释:[fixed-length-tuples](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-2-7.html#fixed-length-tuples)
+
+```js
+// js
+const arr = ['q', 'w', 2, '3']
+```
+```ts
+// ts
+const arr: [string, string, number, string] = ['q', 'w', 2, '3']
+
+// 加readonly修饰符，保证数据只可读 如果没有修改需求 尽可能的加上readonly
+const arr: readonly [string, string, number, string] = ['q', 'w', 2, '3']
+
+// 多利用类型推断，代码更加简洁清晰 [Const contexts for literal expressions](https://github.com/Microsoft/TypeScript/pull/29510)
+const arr = ['q', 'w', 2, '3'] as const; 
+arr[0] = '1'; // Cannot assign to '0' because it is a read-only property
+```
+##### 数组
++ 数组是一个变长的。每项内容类型都相同的列表
+```ts
+const foo: Array<number> = [1, 2, 3];
+// 或者
+const foo: []<number> = [1, 2, 3];
+```
+
+##### 类型别名
+> A type alias declaration introduces a type alias in the containing declaration space.
 
 
 ### TypeError: [Cannot set property 'xxx' of undefined | Cannot read property 'xxx' of undefined]

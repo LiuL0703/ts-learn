@@ -1,6 +1,6 @@
-// const plusOne = (x:number) => x + 1
-// const arr : readonly [string,number,string,number] = ['1',2,'3',4];
-// console.log(`1 + 1 = ${plusOne(1)}`)
+var plusOne = function (x) { return x + 1; };
+var arr = ['1', 2, '3', 4];
+console.log("1 + 1 = " + plusOne(1));
 // const ar = ['1',2,'3'] as const;
 // let i: string = 'qqq';
 // var test: undefined = undefined;
@@ -25,3 +25,5 @@
 // });
 // let flag:boolean = null;
 // flag.length;
+var arr1 = ['I', 'l', 4, '514'];
+arr1[0] = 1;

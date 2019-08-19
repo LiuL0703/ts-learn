@@ -1,36 +1,34 @@
-const plusOne = (x:number) => x + 1
-const arr : readonly [string,number,string,number] = ['1',2,'3',4];
+// const plusOne = (x:number) => x + 1
+// const arr : readonly [string,number,string,number] = ['1',2,'3',4];
 
-console.log(`1 + 1 = ${plusOne(1)}`)
+// console.log(`1 + 1 = ${plusOne(1)}`)
 
-// const ar = ['1',2,'3'] as const;
-// let i: string = 'qqq';
+//  1
+type Respons = {
+  data:{
+    body: {
+      user:{
+        message:string
+      }
+    }
+  },
+}
 
-// var test: undefined = undefined;
-// test.value = '3';  // Object is possibly 'undefined'
+let res:Respons = {
+  data:{
+    body:{
+      user:{
+        message: 'send message'
+      }
+    }
+  }
+}
+console.log(res.user.message); 
 
-// console.log(test.value);
 
-// function bar():void{
-//   var foo:null;
-// }
-// console.log(foo); 
 
-// example(); //error TS2304: Cannot find name 'example'.
-// function scrollEvent(ev: MouseEvent):void{
-//   // do something
-//   console.log('event',ev);
-// }
-// window.document.addEventListener('scroll',function():void {
-//   this.scrollEvent();
-// });
+// 7
 
-// const onClick = (e: MouseEvent) =>
-//   console.log(`(${e.clientX}, ${e.clientY})`);
+const arr1: readonly [string, string, number, string] = ['I', 'l', 4, '514']
 
-// window.addEventListener('click',function():void{
-//   this.onClick();
-// });
-// let flag:boolean = null;
-
-// flag.length;
+arr1[0] = 1; //Cannot assign to '0' because it is a read-only property
