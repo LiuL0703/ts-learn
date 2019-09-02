@@ -3,7 +3,7 @@ const arr : readonly [string,number,string,number] = ['1',2,'3',4];
 
 console.log(`1 + 1 = ${plusOne(1)}`)
 
-// // eg: 1
+// // eg: 0
 // type Respons = {
 //   data:{
 //     body: {
@@ -26,7 +26,7 @@ console.log(`1 + 1 = ${plusOne(1)}`)
 // console.log(res.user.message); 
 
 
-// // eg: 2
+// // eg: 1
 // var flag:boolean = undefined;
 // flag.length; 
 
@@ -36,7 +36,7 @@ console.log(`1 + 1 = ${plusOne(1)}`)
 
 
 
-// // eg: 3
+// // eg: 2
 // const onClick = (e: MouseEvent) =>
 //   console.log(`(${e.clientX}, ${e.clientY})`);
 
@@ -48,7 +48,7 @@ console.log(`1 + 1 = ${plusOne(1)}`)
 
 
 
-// // eg: 4
+// // eg: 3
 // var testArray:string[] = ["Test"];
 
 // function testFunction(testArray:Array<String>):void {
@@ -62,13 +62,13 @@ console.log(`1 + 1 = ${plusOne(1)}`)
 
 
 
-// // eg: 5
+// // eg: 4
 // const arr = ['q', 'w', 2, '3'] as const; 
 // arr[0] = '1'; // Cannot assign to '0' because it is a read-only property
 
 
 
-// // eg: 6
+// // eg: 5
 // var test: undefined = undefined;
 // test.value = 'str';  // Object is possibly 'undefined'
 
@@ -76,7 +76,23 @@ console.log(`1 + 1 = ${plusOne(1)}`)
 
 
 
-// // eg: 7
+// // eg: 6
 // const arr1: readonly [string, string, number, string] = ['I', 'l', 4, '514']
 
 // arr1[0] = 1; //Cannot assign to '0' because it is a read-only property
+
+
+// // eg: 7
+// let a: unknown = undefined
+// a = 12345;
+// a = true;
+
+// let b:boolean = a; // Type 'unknown' is not assignable to type 'boolean'.
+
+
+
+
+// // eg: 8
+// let foo: never = null;  // Type 'null' is not assignable to type 'never'.
+// let bar: number = foo;
+

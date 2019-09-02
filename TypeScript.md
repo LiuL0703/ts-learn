@@ -1,3 +1,4 @@
+## TypeScript
 
 ### TypeError: Cannot read property 'xxx' of undefined
 + **原因**：通常容易出现在a.b.c的场景下
@@ -25,7 +26,7 @@ const res = res.data?.body?.message || '';
 ```
 8月1号 [ Optional Chaining proposal](https://tc39.es/proposal-optional-chaining/)已经进入stage 3阶段，不出意外的话，未来会作为ECMAScript的新规范出现
 
-+ **使用ts**
++ **使用ts** [0]
 ```ts
 
 interface Respons {
@@ -88,7 +89,7 @@ var flag = null;
 console.log(flag.length); // Uncaught TypeError: Cannot read property 'length' of null
 ```
 
-+ **使用ts**
++ **使用ts** [1]
 ```ts
 var flag:boolean = undefined;
 flag.length;  // Property 'length' does not exist on type 'boolean'
@@ -110,7 +111,7 @@ window.document.addEventListener('click',function(){
 // Uncaught TypeError: this.onClick is not a function
 ```
 
-+ **使用ts**
++ **使用ts** [2]
 ```ts
 const onClick = (e: MouseEvent) =>
   console.log(`(${e.clientX}, ${e.clientY})`);
@@ -137,7 +138,7 @@ function testFunction(testArray) {
 testFunction(); // Uncaught TypeError: Cannot read property 'length' of undefined
 ```
 
-+ **使用ts**
++ **使用ts** [3]
 ```ts
 var testArray:string[] = ["Test"];
 
@@ -160,6 +161,7 @@ testFunction();  // Expected 1 arguments, but got 0.
 // js
 const arr = ['q', 'w', 2, '3']
 ```
++ **使用ts** [4]
 ```ts
 // ts
 const arr: [string, string, number, string] = ['q', 'w', 2, '3']
@@ -192,7 +194,7 @@ test.value = 'str';  // Uncaught TypeError: Cannot set property 'value' of undef
 console.log(test.value);  // Uncaught TypeError: Cannot read property 'value' of undefined
 ```
 
-+ **使用ts**
++ **使用ts** [5]
 ```ts
 var test: undefined = undefined;
 test.value = 'str';  // Object is possibly 'undefined'
@@ -212,13 +214,40 @@ function bar(){
 console.log(foo); // Uncaught ReferenceError: foo is not defined
 
 ```
-+ **使用ts**
++ **使用ts**[6]
 ```ts
 function bar():void{
   var foo:null;
 }
 console.log(foo);  // Cannot find name 'foo'
 ```
+
+
+### ts的常见类型
+undefined | null | boolean | number | bigint | string | symbol | void | object | unknown | never | any
+
++ 原始类型 (primitive type)：undefined | null | boolean | number | bigint | string | symbol | void 
++ object 代表了所有非原始类型（non-primitive type），
++ unknown | never 则是类型论中顶和底类型，而 any 则代表了动态类型
+
+
+#### tips
++ 原始类型除了上述介绍的，还有字面量类型（literal type）和枚举类型（enum type）
+
++ > BigInt is a new primitive that provides a way to represent whole numbers larger than 2, which is the largest number Javascript can reliably represent with the Number primitive.
+bigint 就是一个表示范围无穷大的整数类型
+
++ null 和 undefined --> 这两个类型都只有一个实例，所以这两个类型都可以被称为 Unit Type
+
++ unknown type 是 TypeScript 中的 Top Type 符号是(⊤), 任何值都可以赋值给类型是 unkown 的变量。我们不能把一个 unkown 类型的值赋值给任意非 unkown 类型的值[7]
+
++ never 的行为与 unknown 相反，never是 TypeScript 中的 Bottom Type 符号是(⊥) 类型是 never 的值都可以赋值给任何类型的变量。变量的类型是 never 一般表示程序不会执行到这里；函数的返回值类型是 never，一般表示这个函数会 抛出异常，或者永不停机，不会正常返回[8]
+
+
++ any  任意类型的值，意味着不会有任何类型检查,慎用 
+
+
+> **不要把Ts写成As**
 
 
 **参考链接：**
