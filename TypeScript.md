@@ -71,7 +71,10 @@ console.log(res.user.message);  // Property 'user' does not exist on type 'Respo
 + [Typescript: Interfaces vs Types](https://stackoverflow.com/questions/37233735/typescript-interfaces-vs-types)
 + [Interfaces vs. Type Aliases](https://www.typescriptlang.org/docs/handbook/advanced-types.html#interfaces-vs-type-aliases)
 
+#### 使用哪个
+ > you should always use an interface over a type alias if possible.
 
+ > if you can’t express some shape with an interface and you need to use a union or tuple type, type aliases are usually the way to go
 
 
 ### TypeError: ‘undefined’ is not an object(Safari) | Uncaught TypeError: Cannot read property 'xxx' of undefined 
