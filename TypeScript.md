@@ -27,6 +27,20 @@ const res = res.data?.body?.message || '';
 
 + **使用ts**
 ```ts
+
+interface Respons {
+  data:{
+    body: {
+      user:{
+        message:string,
+        hit:string|number
+      }
+    }
+  },
+} 
+
+//  or
+/*   
 type Respons = {
   data:{
     body: {
@@ -36,7 +50,7 @@ type Respons = {
       }
     }
   },
-}
+} */
 
 let res:Respons = {
   data:{
@@ -52,8 +66,6 @@ console.log(res.user.message);  // Property 'user' does not exist on type 'Respo
 ```
 
 #### tips
-##### 类型字面量【Type Literal】
-与类型字面量对应的就是 js 中的对象字面量，所以他们的语法很相似
 
 ##### type vs interface
 + [Typescript: Interfaces vs Types](https://stackoverflow.com/questions/37233735/typescript-interfaces-vs-types)
